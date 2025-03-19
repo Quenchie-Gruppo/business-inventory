@@ -1,12 +1,59 @@
 {% extends 'store/base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<div class="container my-5">
+<style>
+    .vendor-container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+        background-color: #fff;
+        border-bottom: none;
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .card-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #28a745;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .form-control:focus {
+        border-color: #28a745;
+        box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+        border-radius: 10px;
+    }
+
+    .btn-success:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+    }
+</style>
+
+<div class="container vendor-container my-5">
     <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6">
-            <div class="card shadow-sm border-0">
-                <div class="card-header bg-light">
+        <div class="col-md-10 col-lg-8">
+            <div class="card">
+                <div class="card-header">
                     <h2 class="text-center text-success mb-0">
                         {% if form.instance.pk %}Edit Vendor{% else %}Add Vendor{% endif %}
                     </h2>
@@ -14,7 +61,7 @@
                 <div class="card-body">
                     <form method="post" novalidate>
                         {% csrf_token %}
-                        {{ form.as_p }}
+                        {{ form|crispy }}
                         <div class="d-flex justify-content-between mt-4">
                             <a href="{% url 'vendor-list' %}" class="btn btn-secondary btn-sm">
                                 <i class="fas fa-arrow-left me-2"></i> Back
