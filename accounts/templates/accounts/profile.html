@@ -1,0 +1,76 @@
+{% extends 'store/base.html' %}
+{% block title %}Staff Page{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="card shadow mb-4">
+            <div class="card-header bg-light">
+                <h4 class="m-0 font-weight-bold">Profile Information</h4>
+                <a class="btn btn-sm btn-outline-success float-end" href="{% url 'user-profile-update' %}">
+                    <i class="fas fa-edit"></i> Edit Profile
+                </a>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Username</th>
+                                    <td>{{ user.username }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Staff Role</th>
+                                    <td>
+                                        <span class="badge badge-pill bg-soft-success text-success me-2">
+                                            {% if user.profile.role == 'AD' %}
+                                            <i class="fas fa-crown"></i> Admin
+                                            {% elif user.profile.role == 'EX' %}
+                                            <i class="fas fa-briefcase"></i> Executive
+                                            {% else %}
+                                            <i class="fas fa-user"></i> Operative
+                                            {% endif %}
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">First Name</th>
+                                    <td>{{ user.profile.first_name }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Last Name</th>
+                                    <td>{{ user.profile.last_name }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Email</th>
+                                    <td>{{ user.email }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Phone</th>
+                                    <td>{{ user.profile.telephone }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img class="rounded-circle img-fluid" src="{{ user.profile.profile_picture.url }}" alt="profile-image" style="max-width: 150px;">
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-light">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="{% url 'user-profile-update' %}" class="btn btn-sm btn-outline-primary">
+                            <i class="fas fa-cog"></i> Manage Account
+                        </a>
+                    </div>
+                    <div class="col-md-6 text-end">
+                        <a href="#" class="btn btn-sm btn-outline-secondary">
+                            <i class="fas fa-question-circle"></i> Help & Support
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

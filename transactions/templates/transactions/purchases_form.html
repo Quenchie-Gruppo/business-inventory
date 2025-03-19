@@ -1,0 +1,69 @@
+{% extends "store/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Update Purchase Transaction{% endblock title %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-light">
+                    <h2 class="text-center text-success mb-0">Update Purchase Transaction</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+                        <div class="row mb-4">
+                            <div class="form-group col-md-4">
+                                {{ form.item.label_tag }}
+                                {{ form.item }}
+                                {{ form.item.errors }}
+                            </div>
+                            <div class="form-group col-md-4">
+                                {{ form.vendor.label_tag }}
+                                {{ form.vendor }}
+                                {{ form.vendor.errors }}
+                            </div>
+                            <div class="form-group col-md-4">
+                                {{ form.description.label_tag }}
+                                {{ form.description }}
+                                {{ form.description.errors }}
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="form-group col-md-6">
+                                {{ form.delivery_date.label_tag }}
+                                {{ form.delivery_date }}
+                                {{ form.delivery_date.errors }}
+                            </div>
+                            <div class="form-group col-md-6">
+                                {{ form.quantity.label_tag }}
+                                {{ form.quantity }}
+                                {{ form.quantity.errors }}
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="form-group col-md-4">
+                                {{ form.delivery_status.label_tag }}
+                                {{ form.delivery_status }}
+                                {{ form.delivery_status.errors }}
+                            </div>
+                            <div class="form-group col-md-4">
+                                {{ form.price.label_tag }}
+                                {{ form.price }}
+                                {{ form.price.errors }}
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100 mt-4">
+                            <i class="fas fa-save"></i> Save
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

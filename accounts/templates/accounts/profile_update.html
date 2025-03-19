@@ -1,0 +1,115 @@
+{% extends 'store/base.html' %}
+{% block title %}Profile{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-light">
+                        <h2 class="text-center text-success mb-0">Edit Your Profile</h2>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            
+                            <!-- Username -->
+                            <div class="mb-4">
+                                <label for="username" class="form-label"><i class="fas fa-user"></i> Username</label>
+                                <input type="text" id="username" class="form-control {% if u_form.username.errors %}is-invalid{% endif %}" name="username" value="{{ u_form.username.value }}">
+                                <div class="invalid-feedback">
+                                    {% for error in u_form.username.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            
+                            <!-- Email -->
+                            <div class="mb-4">
+                                <label for="email" class="form-label"><i class="fas fa-envelope"></i> Email</label>
+                                <input type="email" id="email" class="form-control {% if u_form.email.errors %}is-invalid{% endif %}" name="email" value="{{ u_form.email.value }}">
+                                <div class="invalid-feedback">
+                                    {% for error in u_form.email.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            
+                            <!-- Secondary Email -->
+                            <div class="mb-4">
+                                <label for="secondary_email" class="form-label"><i class="fas fa-envelope-open-text"></i> Secondary Email</label>
+                                <input type="email" id="secondary_email" class="form-control {% if p_form.email.errors %}is-invalid{% endif %}" name="secondary_email" value="{{ p_form.email.value }}">
+                                <div class="invalid-feedback">
+                                    {% for error in p_form.email.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            
+                            <!-- First Name -->
+                            <div class="mb-4">
+                                <label for="first_name" class="form-label"><i class="fas fa-signature"></i> First Name</label>
+                                <input type="text" id="first_name" class="form-control {% if p_form.first_name.errors %}is-invalid{% endif %}" name="first_name" value="{{ p_form.first_name.value }}">
+                                <div class="invalid-feedback">
+                                    {% for error in p_form.first_name.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            
+                            <!-- Last Name -->
+                            <div class="mb-4">
+                                <label for="last_name" class="form-label"><i class="fas fa-signature"></i> Last Name</label>
+                                <input type="text" id="last_name" class="form-control {% if p_form.last_name.errors %}is-invalid{% endif %}" name="last_name" value="{{ p_form.last_name.value }}">
+                                <div class="invalid-feedback">
+                                    {% for error in p_form.last_name.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            
+                            <!-- Mobile Number -->
+                            <div class="mb-4">
+                                <label for="telephone" class="form-label"><i class="fas fa-phone"></i> Mobile Number</label>
+                                <input type="text" id="telephone" class="form-control {% if p_form.telephone.errors %}is-invalid{% endif %}" name="telephone" value="{{ p_form.telephone.value }}">
+                                <div class="invalid-feedback">
+                                    {% for error in p_form.telephone.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                            <!-- Profile Picture -->
+                            <div class="mb-4">
+                                <label for="profile_picture" class="form-label"><i class="fas fa-camera"></i> Profile Picture</label>
+                                <input type="file" id="profile_picture" class="form-control {% if p_form.profile_picture.errors %}is-invalid{% endif %}" name="profile_picture">
+                                <div class="invalid-feedback">
+                                    {% for error in p_form.profile_picture.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-success w-100">Update Profile</button>
+                        </form>
+                    </div>
+                    <div class="card-footer bg-light">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="{% url 'user-profile' %}" class="btn btn-sm btn-outline-primary">
+                                    <i class="fas fa-eye"></i> View Profile
+                                </a>
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <a href="#" class="btn btn-sm btn-outline-secondary">
+                                    <i class="fas fa-question-circle"></i> Help & Support
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
