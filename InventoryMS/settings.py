@@ -14,13 +14,15 @@ SECRET_KEY = 'django-insecure-g_n2+2bznu6e@1wel!i(&-4tp86_7lop5395ww+i4x%9*7^old
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['InventoryMS.vercel.app', 'localhost', '127.0.0.1']
+
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nonstatic',
+    # 'whitenoise.runserver_nonstatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,7 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenois.middleware.WhiteNoiseMiddleware',
+    # 'whitenois.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
