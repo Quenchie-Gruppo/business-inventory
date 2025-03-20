@@ -16,7 +16,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY','ohhkea39jh)0rl6awu$vd#31jqt5*q-k&mwz
 DEBUG = True
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['InventoryMS.vercel.app', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*.vercel.app', 'localhost', '127.0.0.1']
 
 
 
