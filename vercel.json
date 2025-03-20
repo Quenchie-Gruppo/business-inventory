@@ -17,12 +17,6 @@
       { "src": "/media/(.*)", "dest": "/static/images/$1" }, 
       { "src": "/(.*)", "dest": "/index.html" }
     ],
-    "functions": {
-      "api/**/*.py": {
-        "memory": 512,
-        "maxDuration": 10
-      }
-    },
     "static": {
       "directories": [
         "staticfiles"  
