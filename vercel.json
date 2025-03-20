@@ -9,11 +9,24 @@
       }
     ],
     "env": {
-      "DJANGO_SETTINGS_MODULE": "InventoryMS.settings.production"
+      "DJANGO_SETTINGS_MODULE": "InventoryMS.settings.production",
+      "DJANGO_SECRET_KEY": "@DJANGO_SECRET_KEY"
     },
     "routes": [
       { "src": "/static/(.*)", "dest": "/static/$1" },
+      { "src": "/media/(.*)", "dest": "/static/images/$1" }, 
       { "src": "/(.*)", "dest": "/index.html" }
-    ]
+    ],
+    "functions": {
+      "api/**/*.py": {
+        "memory": 512,
+        "maxDuration": 10
+      }
+    },
+    "static": {
+      "directories": [
+        "staticfiles"  
+      ]
+    }
   }
   
