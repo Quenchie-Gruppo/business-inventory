@@ -14,13 +14,8 @@
     },
     "routes": [
       { "src": "/static/(.*)", "dest": "/static/$1" },
-      { "src": "/media/(.*)", "dest": "/static/images/$1" }, 
+      { "src": "/media/(.*)", "dest": "/static/images/$1" },  
       { "src": "/(.*)", "dest": "/index.html" }
-    ],
-    "static": {
-      "directories": [
-        "staticfiles"  
-      ]
-    }
+    ]
   }
   
