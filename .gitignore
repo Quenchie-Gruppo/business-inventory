@@ -111,3 +111,6 @@ ipython_config.py
 
 # pytype
 .pytype/
+
+# dotenv 
+.env
