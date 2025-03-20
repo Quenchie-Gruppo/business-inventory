@@ -10,11 +10,12 @@
     ],
     "env": {
       "DJANGO_SETTINGS_MODULE": "InventoryMS.settings.production",
-      "DJANGO_SECRET_KEY": "@DJANGO_SECRET_KEY"
+      "DJANGO_SECRET_KEY": "ohhkea39jh)0rl6awu$vd#31jqt5*q-k&mwze@u($z#4c106kn",
+      "DATABASE_URL": "sqlite:///db.sqlite3"
     },
     "routes": [
       { "src": "/static/(.*)", "dest": "/static/$1" },
-      { "src": "/media/(.*)", "dest": "/static/images/$1" },  
+      { "src": "/media/(.*)", "dest": "/static/images/$1" },
       { "src": "/(.*)", "dest": "/index.html" }
     ]
   }
